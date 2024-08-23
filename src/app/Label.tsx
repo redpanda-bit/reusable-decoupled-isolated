@@ -1,1 +1,1 @@
-export const Label = ({ text }) => <label>{text}</label>
+export const Label = ({ text }: { text: string }) => <label>{text}</label>

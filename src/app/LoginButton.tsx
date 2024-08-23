@@ -1,10 +1,11 @@
 "use client"
+import { MouseEvent, MouseEventHandler } from "react";
 import { useSelector } from "react-redux";
 
 const LoginButton = () => {
-  const { userId, password } = useSelector(state => state)
+  const { userId, password } = useSelector<Object, { userId: string, password: string }>(state => state)
 
-  const onClick = (e) => {
+  const onClick: MouseEventHandler = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log("form submit", userId, password);
   };

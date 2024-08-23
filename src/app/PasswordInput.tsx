@@ -1,16 +1,17 @@
 "use client"
 import { useDispatch, useSelector } from "react-redux";
 import { setPassword } from "./store";
+import { ChangeEvent } from "react";
 
-const PasswordInputComponent = ({ value, onChange }) => (
+const PasswordInputComponent = ({ value, onChange }: { value: string, onChange: (e: ChangeEvent<HTMLInputElement>) => void }) => (
   <input type="password" value={value} onChange={onChange} required />
 );
 
 const PasswordInput = () => {
-  const password = useSelector(({ password }) => password)
+  const password = useSelector<{password: string}, string>(({ password }) => password)
   const dispatch = useDispatch()
 
-  const handleChange = e => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setPassword(e.target.value))
   };
 
