@@ -3,8 +3,10 @@ import type { ChangeEvent } from 'react'
 import { setUserId } from "./store";
 import { useDispatch, useSelector } from "react-redux";
 
+const id = 'user-id-input'
+
 const UserIdInputComponent = ({ value, onChange }: { value: string, onChange: (e: ChangeEvent<HTMLInputElement>) => void }) => (
-  <input type="text" value={value} onChange={onChange} required />
+  <input id={id} type="text" value={value} onChange={onChange} required />
 );
 
 const UserIdInput = () => {
@@ -20,7 +22,7 @@ const UserIdInput = () => {
 
 export const UserIdInputWithLabel = () => (
   <div>
-    <label>User id: </label>
+    <label htmlFor={id}>User id: </label>
     <UserIdInput />
   </div>
 )

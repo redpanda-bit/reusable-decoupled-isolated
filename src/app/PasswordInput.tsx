@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPassword } from "./store";
 import { ChangeEvent } from "react";
 
+const id = 'password-input'
+
 const PasswordInputComponent = ({ value, onChange }: { value: string, onChange: (e: ChangeEvent<HTMLInputElement>) => void }) => (
-  <input type="password" value={value} onChange={onChange} required />
+  <input id={id} type="password" value={value} onChange={onChange} required />
 );
 
 const PasswordInput = () => {
@@ -20,7 +22,7 @@ const PasswordInput = () => {
 
 const PasswordInputWithLabel = () => (
   <div>
-    <label>Password: </label>
+    <label htmlFor={id}>Password: </label>
     <PasswordInput />
   </div>
 )
